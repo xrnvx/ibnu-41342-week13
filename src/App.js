@@ -20,19 +20,19 @@ function App() {
   var updatedMs = time.ms, updatedS = time.s, updatedM = time.m, updatedH = time.h;
 
   const run = () => {
-    if(updatedM === 60){
-      updatedH++;
-      updatedM = 0;
+    if(updatedH > 0){
+      updatedH--;
+      updatedM = 59;
     }
-    if(updatedS === 60){
-      updatedM++;
-      updatedS = 0;
+    if(updatedM > 0){
+      updatedS--;
+      updatedM = 69;
     }
-    if(updatedMs === 100){
-      updatedS++;
-      updatedMs = 0;
+    if(updatedMs === 0){
+      updatedS--;
+      updatedMs = 100;
     }
-    updatedMs++;
+    updatedMs--;
     return setTime({ms:updatedMs, s:updatedS, m:updatedM, h:updatedH});
   };
 
